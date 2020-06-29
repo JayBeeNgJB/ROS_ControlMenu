@@ -1,0 +1,42 @@
+html {
+    font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.menu {
+  width: 100%;
+  display: inline-flex;
+  text-align: center;
+  padding: 2px;
+}
+
+.active {
+  border-bottom: 3px solid #43c3d5;
+  background-color: #252424;
+  color: white;
+  font-weight: bold;
+}
+
+.auto{
+  cursor: pointer;
+}
+
+.manual {
+  cursor: pointer;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #00adff;
+  color: white;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}

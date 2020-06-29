@@ -1,0 +1,72 @@
+{% extends 'views//layout/layout.html' %}
+
+{% block css %}
+    <link href="/static/css/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/auto.css">
+{% endblock %}
+
+{% block javascript %}
+    <script src="/static/js/auto.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="block">
+        <div class="control_content">
+            <table>
+                <tr>
+                    <td style="width: 30%"></td>
+                    <td style="width: 30%"></td>
+                    <td class="timer_lbl" style="width: 40%">TIMER</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="select_type">
+                            <select class="form-control" id="open_type">
+                                <option value="full">FULL</option>
+                                <option value="medium">MEDIUM</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div>ON</div>
+                        <button class="on_btn">
+                            <i class="fa fa-circle" aria-hidden="true" style="color:blue"></i>
+                        </button>
+
+                        <div class="off_label">OFF</div>
+                        <button class="off_btn">
+                            <i class="fa fa-circle" aria-hidden="true" style="color:red"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <div class="timer">
+                            00:00
+                        </div>
+
+                        <span>RUN TIME</span>
+                        <div class="run_time">
+                            34:00
+                        </div>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+
+    <div class="block">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+        <!-- <img height="100%"  width="100%"  src="http://192.168.31.214/axis-cgi/mjpg/video.cgi?" /> -->
+    </div>
+    <div class="camera_control">  
+        <button id="1" onclick="rotate(this.id)" class="btn btn-success">Left</button>
+        <button id="2" onclick="rotate(this.id)" class="btn btn-warning">Right</button>
+        <button id="3" onclick="rotate(this.id)" class="btn btn-primary">UP</button>
+        <button id="4" onclick="rotate(this.id)" class="btn btn-danger">DOWN</button>
+    </div>
+
+</div>
+{% endblock %}
+
