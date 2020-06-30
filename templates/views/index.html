@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/img/logo.ico">
+
+    <title>DX5 Dashboard</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/pricing/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="/static/css/fontawesome-free-5.13.0-web/css/fontawesome.min.css" rel="stylesheet"> -->
+    <link href="/static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/index.css">
+    
+    <!-- library js -->
+    <script src="/static/js/lib/jquery-3.5.1.min.js"></script>
+
+    <!-- Custom js  -->
+    <script src="/static/js/layout.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script src="/static/js/store.js"></script>
+
+ 
+
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-1 px-md-4 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">
+          <img src="/static/img/logo.png" class="logo"/>
+      </h5>
+      <!-- <nav class="my-2 my-md-0 mr-md-3">
+        <a class="auto p-2 text-dark">Auto</a>
+        <a class="manual p-2 text-dark">Manual</a>
+      </nav> -->
+    </div>
+    <div class="container">
+        <div class="menu">
+            <div class="auto active" style="width: 50%;">AUTO</div>
+            <div class="manual" style="width: 50%;">MANUAL</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="block">
+            <div class="control_content">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="select_type">
+                                <select class="form-control" id="open_type">
+                                    <option value="full">FULL</option>
+                                    <option value="medium">MEDIUM</option>
+                                </select>
+                            </div>
+                            <!-- timer select  -->
+                            <div class="timer_select">
+                                <select class="form-control" id="timer_min">
+                                    <option value="1">10 min</option>
+                                    <option value="20">20 min</option>
+                                    <option value="30">30 min</option>
+                                    <option value="40">40 min</option>
+                                    <option value="50">50 min</option>
+                                    <option value="60">60 min</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div>ON</div>
+                            <button class="on_btn">
+                                <i class="fa fa-circle" aria-hidden="true" style="color:blue"></i>
+                            </button>
+
+                            <div class="off_label">OFF</div>
+                            <button class="off_btn">
+                                <i class="fa fa-circle" aria-hidden="true" style="color:red"></i>
+                            </button>
+                        </td>
+                        <td>
+                        <span class="timer_lbl">TIMER</span>
+                            <div class="timer">
+                                00:00:00
+                            </div>
+
+                            <span class="run_time_lbl">RUN TIME</span>
+                            <div class="run_time">
+                                00:00:00
+                            </div>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+
+        <div class="block">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+            <!-- <img height="100%"  width="100%"  src="http://192.168.31.214/axis-cgi/mjpg/video.cgi?" /> -->
+        </div>
+
+        <div class="camera_error">Camera is not connected. Please make sure camera is online</div>
+
+        <div class="camera_control">  
+            <button id="1" onclick="rotate(this.id)" class="btn btn-success">Left</button>
+            <button id="2" onclick="rotate(this.id)" class="btn btn-warning">Right</button>
+            <button id="3" onclick="rotate(this.id)" class="btn btn-primary">&nbsp UP &nbsp</button>
+            <button id="4" onclick="rotate(this.id)" class="btn btn-danger">DOWN</button>
+        </div>
+
+    </div>
+    <div class="footer">
+        <span> Copyright © Datumstruct (S) </span>
+      </div>
+</body>
+</html>
+

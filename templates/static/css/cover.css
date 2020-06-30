@@ -1,11 +1,24 @@
 html {
-    font-size: 14px;
+    font-size: 10px;
 }
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
 }
+
+.logo {
+  width: 150px;
+  height: 60px;
+}
+
+@media screen
+    and (max-device-width: 420px) {
+        .logo {
+            height: 60px;
+        }
+    }
+
 
 .menu {
   width: 100%;
@@ -30,13 +43,22 @@ html {
 }
 
 .footer {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #00adff;
   color: white;
   text-align: center;
-  height: 40px;
-  line-height: 40px;
+  height: 25px;
+  line-height: 25px;
 }
+
+@media screen
+    and (max-device-width: 800px) {
+        .footer {
+          position: fixed;
+          height: 40px;
+          line-height: 40px;
+        }
+    }

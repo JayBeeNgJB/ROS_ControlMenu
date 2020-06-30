@@ -38,7 +38,13 @@ td{
 }
 
 .select_type {
-    margin-left: 10px
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.timer_select {
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 select{
@@ -61,7 +67,12 @@ select{
     margin-bottom: 6px;
 }
 
+.run_time_lbl {
+    display: none;
+}
+
 .run_time {
+    display: none;
     border: 1px solid #000;
     margin-right: 7px; 
     /* padding: 22px; */
@@ -70,7 +81,6 @@ select{
 @media screen
     and (max-device-width: 420px) {
         .run_time {
-            border: 1px solid #000;
             margin-right: 5px; 
             /* padding: 2px; */
             margin-top: 10px
@@ -81,12 +91,25 @@ button{
     margin-left: 4px;
 }
 
+.camera_error {
+    display: none;
+    width: 100%;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.camera_control {
+    padding-bottom: 20px;
+}
+
 @media screen 
   and (min-device-width: 1200px) 
   and (max-device-width: 1600px){
       .container{
-        padding-right: 75px;
-        padding-left: 75px;
+        padding-right: 85px;
+        padding-left: 85px;
         margin-right: auto;
         margin-left: auto;
       }
