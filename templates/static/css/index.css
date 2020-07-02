@@ -1,81 +1,132 @@
 .container {
     margin-bottom: 20px;
+    padding-right: unset;
+    padding-left: unset;
+}
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) {
+      .container {
+        /*padding-right: 85px;
+        padding-left: 85px;*/
+        margin-right: auto;
+        margin-left: auto;
+      }
+  }
+
+.header-text {
+    margin: 0 auto;
+    text-align: center;
+    line-height: 2.5em;
+    font-size: 33px;
+    font-weight: bold;
+    color: #7bc9cc;
+}
+
+@media screen
+    and (max-device-width: 420px) {
+        .header-text {
+            font-size: 22px;
+        }
+    }
+
+.menu-btn {
+    /*background-color: #0095b3;*/
+    /*color: #777f84;*/
+    /*border: 1px solid #9be8fc;*/
+    padding: 3px;
 }
 
 .block{
-    border-style: groove;
+    /*border-style: groove;*/
+    border: 2px solid #9be8fc;
     width: 100%;
     display: inline-flex;
-    margin-bottom: 40px;
+   /* margin-bottom: 40px;*/
 }
 
 @media screen
     and (max-device-width: 420px) {
         .block {
-            margin-bottom: 10px;
+            /*margin-bottom: 10px;*/
         }
     }
 
 .control_content {
     margin-bottom: 7px; 
     width: 100%;
+    font-size: 18px;
+    color: #9be8fc;
 }
 
 @media screen
     and (max-device-width: 420px) {
         .control_content {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
     }
+
+.form-control{
+    background-color: #9be8fc;
+    margin-top: 6px;
+}
 
 table {
     width: 100%; 
     height: 100%
 }
 
-td{
+td {
     text-align: center;
 }
 
 .select_type {
     margin-left: 10px;
     margin-top: 20px;
+    width: 75%;
 }
 
 .timer_select {
     margin-left: 10px;
     margin-top: 10px;
+    width: 75%;
 }
 
-select{
+select {
     min-width: 65px;
-}
+} 
 
-.off_label {
-    margin-top: 8px
-}
-
-.off_btn {
-    margin-top: 5px
+#timer_min, #open_type {
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .timer {
-    border: 1px solid #000; 
+    background-color: #000; 
     margin-right: 7px; 
-    /* padding: 22px;  */
+     /*padding: 14px;*/ 
     margin-top: 4px;
     margin-bottom: 6px;
+    margin-left: 8px;
+    color: #29e929;
+    font-size: 60px;
 }
 
 .run_time_lbl {
     display: none;
+
 }
 
 .run_time {
     display: none;
-    border: 1px solid #000;
-    margin-right: 7px; 
-    /* padding: 22px; */
+    background-color: #000;
+    margin-right: 7px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+    margin-left: 8px;
+    color: #29e929;
+    font-size: 60px;
 }
 
 @media screen
@@ -83,34 +134,65 @@ select{
         .run_time {
             margin-right: 5px; 
             /* padding: 2px; */
-            margin-top: 10px
+            margin-top: 10px;
+            font-size: 50px;
         }
     }
 
-button{
+button {
     margin-left: 4px;
 }
 
-.camera_error {
-    display: none;
-    width: 100%;
-    color: red;
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: 10px;
+.uvc_btn_group {
+    margin-top: 20px;
+    color: #000;
+    width: 20%;
+    display: inline-block;
+}
+
+.start {
+    background-color: #28a745;
+    border-color: #28a745;
+    float: left;
+    margin-left: 24px;
+}
+
+.pause {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.stop {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    float: right;
+    margin-right: 24px;
+}
+
+#camera_live {
+    width : 100%;
+    height : 50%;
 }
 
 .camera_control {
     padding-bottom: 20px;
 }
 
-@media screen 
-  and (min-device-width: 1200px) 
-  and (max-device-width: 1600px){
-      .container{
-        padding-right: 85px;
-        padding-left: 85px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-  }
+.camera_btn_group{
+    color: black;
+    background-color: #d4fcfe;
+    border-color: #d4fcfe;
+    width: 20%;
+    display: inline-block;
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+    .camera_btn_group {
+        width: 132px;
+    }
+}
+
+iframe{
+    padding: 6px;
+    border: unset;
+}

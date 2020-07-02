@@ -1,44 +1,45 @@
 html {
-    font-size: 10px;
+  font-size: 10px;
 }
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
 }
 
+body {
+  background-color: #000;
+}
+
 .logo {
-  width: 150px;
+  width: 102px;
   height: 60px;
+  margin-left: 4px;
 }
 
 @media screen
-    and (max-device-width: 420px) {
-        .logo {
-            height: 60px;
-        }
-    }
-
+  and (max-device-width: 420px) {
+      .logo {
+          height: 49px;
+      }
+  }
 
 .menu {
   width: 100%;
   display: inline-flex;
   text-align: center;
-  padding: 2px;
+  /*padding: 2px;*/
+  font-size: 14px;
 }
 
 .active {
-  border-bottom: 3px solid #43c3d5;
-  background-color: #252424;
-  color: white;
+  border: 2px solid #9be8fc;
+  color: #9be8fc;
   font-weight: bold;
 }
 
-.auto{
-  cursor: pointer;
-}
-
-.manual {
+.auto , .manual{
   cursor: pointer;
 }
 
@@ -55,10 +56,10 @@ html {
 }
 
 @media screen
-    and (max-device-width: 800px) {
-        .footer {
-          position: fixed;
-          height: 40px;
-          line-height: 40px;
-        }
-    }
+  and (max-device-width: 800px) {
+      .footer {
+        position: fixed;
+        height: 40px;
+        line-height: 40px;
+      }
+  }

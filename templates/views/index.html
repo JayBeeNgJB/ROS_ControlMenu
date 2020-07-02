@@ -9,8 +9,6 @@
 
     <title>DX5 Dashboard</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/pricing/">
-
     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <!-- <link href="/static/css/fontawesome-free-5.13.0-web/css/fontawesome.min.css" rel="stylesheet"> -->
@@ -28,40 +26,35 @@
     <script src="/static/js/index.js"></script>
     <script src="/static/js/store.js"></script>
 
- 
-
   </head>
   <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-1 px-md-4 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">
-          <img src="/static/img/logo.png" class="logo"/>
-      </h5>
-      <!-- <nav class="my-2 my-md-0 mr-md-3">
-        <a class="auto p-2 text-dark">Auto</a>
-        <a class="manual p-2 text-dark">Manual</a>
-      </nav> -->
+    <div class="container" style="margin-bottom: unset;">
+    	<div class="menu">
+    		<div><img src="/static/img/logo.png" class="logo"/></div>
+    		<div class="header-text">DX5 Disinfection Robot</div>
+    	</div>
     </div>
-    <div class="container">
-        <div class="menu">
-            <div class="auto active" style="width: 50%;">AUTO</div>
-            <div class="manual" style="width: 50%;">MANUAL</div>
+    
+    <div class="container" style="background-color: #393f4d">
+        <div class="menu" style="border-bottom: unset;">
+            <div class="auto active menu-btn" style="width: 50%;">AUTO</div>
+            <div class="manual menu-btn" style="width: 50%;">MANUAL</div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="block">
+        <div class="block" style="border-bottom: unset;">
             <div class="control_content">
                 <table>
                     <tr>
                         <td>
                             <div class="select_type">
+                            	Set UVC Mode
                                 <select class="form-control" id="open_type">
                                     <option value="full">FULL</option>
                                     <option value="medium">MEDIUM</option>
                                 </select>
                             </div>
                             <!-- timer select  -->
-                            <div class="timer_select">
+                            <div class="timer_select">Set Timer
                                 <select class="form-control" id="timer_min">
                                     <option value="1">10 min</option>
                                     <option value="20">20 min</option>
@@ -72,28 +65,27 @@
                                 </select>
                             </div>
                         </td>
-                        <td>
-                            <div>ON</div>
-                            <button class="on_btn">
-                                <i class="fa fa-circle" aria-hidden="true" style="color:blue"></i>
-                            </button>
+                        <td style="width: 50%; padding-top: 15px;">
+                        	<span class="timer_lbl">TIMER</span>
+	                            <div class="timer">
+	                                00:00
+	                            </div>
 
-                            <div class="off_label">OFF</div>
-                            <button class="off_btn">
-                                <i class="fa fa-circle" aria-hidden="true" style="color:red"></i>
-                            </button>
+	                            <span class="run_time_lbl">RUN TIME</span>
+	                            <div class="run_time">
+	                                00:00:00
+	                            </div>
                         </td>
-                        <td>
-                        <span class="timer_lbl">TIMER</span>
-                            <div class="timer">
-                                00:00:00
-                            </div>
+                    </tr>
 
-                            <span class="run_time_lbl">RUN TIME</span>
-                            <div class="run_time">
-                                00:00:00
-                            </div>
-                        </td>
+                    <tr>
+                    	<td colspan="2">
+                    		<div>
+		                    	<button class="btn uvc_btn_group start">START</button>
+		                    	<button class="btn uvc_btn_group pause">PAUSE</button>
+		                    	<button class="btn uvc_btn_group stop">STOP</button>
+	                    	</div>
+                    	</td>
                     </tr>
                     
                 </table>
@@ -101,17 +93,24 @@
         </div>
 
         <div class="block">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-            <!-- <img height="100%"  width="100%"  src="http://192.168.31.214/axis-cgi/mjpg/video.cgi?" /> -->
-        </div>
-
-        <div class="camera_error">Camera is not connected. Please make sure camera is online</div>
-
-        <div class="camera_control">  
-            <button id="1" onclick="rotate(this.id)" class="btn btn-success">Left</button>
-            <button id="2" onclick="rotate(this.id)" class="btn btn-warning">Right</button>
-            <button id="3" onclick="rotate(this.id)" class="btn btn-primary">&nbsp UP &nbsp</button>
-            <button id="4" onclick="rotate(this.id)" class="btn btn-danger">DOWN</button>
+        	<table>
+                <tr>
+                    <td>
+                        <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
+                        <img id="camera_live" src="http://192.168.0.13/axis-cgi/mjpg/video.cgi?" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="camera_control">  
+                            <button id="1" onclick="rotate(this.id)" class="btn camera_btn_group">Left</button>
+                            <button id="2" onclick="rotate(this.id)" class="btn camera_btn_group">Right</button>
+                            <button id="3" onclick="rotate(this.id)" class="btn camera_btn_group">&nbsp UP &nbsp</button>
+                            <button id="4" onclick="rotate(this.id)" class="btn camera_btn_group">DOWN</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
 
     </div>
