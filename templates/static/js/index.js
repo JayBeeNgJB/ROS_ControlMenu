@@ -19,10 +19,12 @@ window.addEventListener('load', (e) => {
     menu_switch();
     powerOn();
     powerOff();
+    pause();
+    resume();
 });
 
 function powerOn() {
-    $(".on_btn").on('click', function() {
+    $(".start").on('click', function() {
         console.log("Power ON");
 
         //get timer period
@@ -31,25 +33,40 @@ function powerOn() {
         startTimer($duration);
 
         //disable power on
-        $(".on_btn").css('pointer-events', 'none');
-        $(".on_btn i").css('color', '#767676');
+        $(this).css('pointer-events', 'none');
+        $(this).css('color', '#767676');
         //enable power off
-        $(".off_btn").css('pointer-events', 'auto');
-        $(".off_btn i").css('color', 'red');
+        $(".stop").css('pointer-events', 'auto');
+        $(".stop").css('color', 'black');
     });
 }
 
 function powerOff() {
-    $(".off_btn").on('click', function() {
+    $(".stop").on('click', function() {
         console.log("Power Off");
 
         STOP_TIMER = true;
         //enable power on
-        $(".on_btn").css('pointer-events', 'auto');
-        $(".on_btn i").css('color', 'blue');
+        $(".start").css('pointer-events', 'auto');
+        $(".start").css('color', 'black');
         //disable power off
-        $(".off_btn").css('pointer-events', 'none');
-        $(".off_btn i").css('color', '#767676');
+        $(this).css('pointer-events', 'none');
+        $(this).css('color', 'rgb(53, 60, 71)');
+    });
+}
+
+function pause() {
+    $(".pause_btn").on('click', function() {
+        $(".resume_btn").show();
+        $(this).hide();
+    });
+    
+}
+
+function resume() {
+    $(".resume_btn").on('click', function() {
+        $(this).hide();
+        $(".pause_btn").show();
     });
 }
 
@@ -79,6 +96,7 @@ function startTimer(duration) {
             //enable power on
             $(".on_btn").css('pointer-events', 'auto');
             $(".on_btn i").css('color', 'blue');
+            STOP_TIMER = false;
         }
     }, 1000);
 }

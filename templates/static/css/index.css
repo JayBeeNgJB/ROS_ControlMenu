@@ -46,10 +46,9 @@
    /* margin-bottom: 40px;*/
 }
 
-@media screen
-    and (max-device-width: 420px) {
+@media (min-width: 430px) and (max-width: 1024px){
         .block {
-            /*margin-bottom: 10px;*/
+            padding: 25px;
         }
     }
 
@@ -84,13 +83,18 @@ td {
 .select_type {
     margin-left: 10px;
     margin-top: 20px;
-    width: 75%;
+    width: 75%;   
 }
 
 .timer_select {
     margin-left: 10px;
     margin-top: 10px;
     width: 75%;
+    font-weight: bold;
+}
+
+.timer_lbl {
+    font-weight: bold;
 }
 
 select {
@@ -98,9 +102,16 @@ select {
 } 
 
 #timer_min, #open_type {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: bold;
 }
+
+@media screen
+    and (max-width: 500px) {
+        #timer_min, #open_type {
+            font-size: 12px;
+        }
+    }
 
 .timer {
     background-color: #000; 
@@ -148,18 +159,24 @@ button {
     color: #000;
     width: 20%;
     display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .start {
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #0DFF0E;
+    border-color: #0DFF0E;
     float: left;
     margin-left: 24px;
 }
 
 .pause {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #FEDA6A;
+    border-color: #FEDA6A;
+}
+
+.resume_btn {
+    display: none;
 }
 
 .stop {
@@ -169,13 +186,37 @@ button {
     margin-right: 24px;
 }
 
+.start:active, .pause:active, .stop:active {
+    background-color: white;
+    font-size: 14.5px;
+}
+
 #camera_live {
     width : 100%;
-    height : 50%;
+    height : 28%;
+}
+
+@media (max-width: 420px) {
+    #camera_live {
+        height: 31%;
+    }
+}
+
+@media (max-width: 380px) {
+    #camera_live {
+        height: 25%;
+    }
 }
 
 .camera_control {
-    padding-bottom: 20px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+@media (min-width: 430px) and (max-width: 800px){
+    .camera_control {
+        padding-top: 25px;
+    }
 }
 
 .camera_btn_group{
@@ -184,6 +225,12 @@ button {
     border-color: #d4fcfe;
     width: 20%;
     display: inline-block;
+    font-weight: bold;
+}
+
+.camera_btn_group:active {
+    background-color: black;
+    font-size: 80%;
 }
 
 @media (min-width: 768px) and (max-width: 1024px){

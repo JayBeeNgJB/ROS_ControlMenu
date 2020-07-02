@@ -44,15 +44,16 @@ body {
 }
 
 .footer {
-  position: relative;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #00adff;
+  background-color: #0299A8 ;
   color: white;
   text-align: center;
   height: 25px;
   line-height: 25px;
+  font-weight: bold;
 }
 
 @media screen
