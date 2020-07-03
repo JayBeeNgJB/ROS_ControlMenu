@@ -48,7 +48,7 @@
 
 @media (min-width: 430px) and (max-width: 1024px){
         .block {
-            padding: 25px;
+            /* padding: 12px; */
         }
     }
 
@@ -66,6 +66,10 @@
         }
     }
 
+.motion_alert {
+    display: none;
+    padding: 20px;
+}
 .form-control{
     background-color: #9be8fc;
     margin-top: 6px;
@@ -82,9 +86,17 @@ td {
 
 .select_type {
     margin-left: 10px;
-    margin-top: 20px;
-    width: 75%;   
+    width: 75%;
+    font-weight: bold;
 }
+
+@media screen
+    and (max-device-width: 420px) {
+        .select_type {
+            font-size: 15px;
+            font-weight: normal;
+        }
+    }
 
 .timer_select {
     margin-left: 10px;
@@ -107,7 +119,7 @@ select {
 }
 
 @media screen
-    and (max-width: 500px) {
+    and (max-width: 700px) {
         #timer_min, #open_type {
             font-size: 12px;
         }
@@ -122,6 +134,11 @@ select {
     margin-left: 8px;
     color: #29e929;
     font-size: 60px;
+}
+
+#hour_group {
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .run_time_lbl {
@@ -155,13 +172,19 @@ button {
 }
 
 .uvc_btn_group {
-    margin-top: 20px;
+    margin-top: 2px;
     color: #000;
     width: 20%;
     display: inline-block;
     font-weight: bold;
     font-size: 15px;
 }
+
+@media (min-width: 420px) {
+        .uvc_btn_group {
+            /* margin-top: 20px; */
+        }
+    }
 
 .start {
     background-color: #0DFF0E;
@@ -171,8 +194,10 @@ button {
 }
 
 .pause {
-    background-color: #FEDA6A;
+    /* background-color: #FEDA6A; */
+    background-color: #2f2f2d;
     border-color: #FEDA6A;
+    color: #2f2f2d;
 }
 
 .resume_btn {
@@ -180,7 +205,8 @@ button {
 }
 
 .stop {
-    background-color: #dc3545;
+    /* background-color: #dc3545; */
+    background-color: #2f2f2d;
     border-color: #dc3545;
     float: right;
     margin-right: 24px;
@@ -189,6 +215,11 @@ button {
 .start:active, .pause:active, .stop:active {
     background-color: white;
     font-size: 14.5px;
+}
+
+#total_hours {
+    font-weight: bold;
+    color: #acdc18;
 }
 
 #camera_live {

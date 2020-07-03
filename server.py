@@ -10,6 +10,7 @@ app._static_folder = os.path.abspath("templates/static/")
 @app.route('/')
 def index():
     return render_template("views/index.html", message="Manual")
+
 @app.route('/get/time')
 def get_times():
     with open("templates/static/data.json") as data_file:
@@ -29,4 +30,4 @@ def save_times():
     return jsonify({"result": "success"})
 
 if __name__ == '__main__':
-    app.run(host= '0.0.0.0', port=7000, debug=True)
+    app.run(host= '0.0.0.0', port=7000, debug=False)

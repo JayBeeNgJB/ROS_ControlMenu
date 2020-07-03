@@ -11,6 +11,6 @@ router.get('/', function(req,res) {
     res.sendFile(path.join(__dirname + '/templates/views/index.html'));
 })
 
-app.listen(process.env.port || 4000);
+app.listen(4000, "0.0.0.0");
 
-console.log("DX5 Server is running at Port 4000");
+console.log("DX Server is running at Port 4000");

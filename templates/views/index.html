@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/static/img/logo.ico">
 
-    <title>DX5 Dashboard</title>
+    <title>DX Disinfection Robot</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
     <div class="container" style="margin-bottom: unset;">
     	<div class="menu">
     		<div><img src="/static/img/logo.png" class="logo"/></div>
-    		<div class="header-text">DX5 Disinfection Robot</div>
+    		<div class="header-text">DX Disinfection Robot</div>
     	</div>
     </div>
     
@@ -44,10 +44,17 @@
         <div class="block" style="border-bottom: unset;">
             <div class="control_content">
                 <table>
-                    <tr>
-                        <td>
+                    <tr> 
+                        <!-- motion alert show -->
+                        <td class="motion_alert">
+                            <div class="motion_alert" style="padding: 30px;">
+                                <img src="/static/img/motion_alert.PNG" width="100%" height="100%">
+                            </div>
+                        </td>
+
+                        <td class="uvc_power" style="padding-bottom: 40px;">
                             <div class="select_type">
-                            	Set UVC Mode
+                            	UVC Power Mode
                                 <select class="form-control" id="open_type">
                                     <option value="full">FULL</option>
                                     <option value="medium">MEDIUM</option>
@@ -65,11 +72,15 @@
                                 </select>
                             </div>
                         </td>
-                        <td style="width: 50%; padding-top: 15px;">
-                        	<span class="timer_lbl">TIMER</span>
+                        <td class="time_area" style="width: 50%; padding-top: 15px; padding-bottom: 40px;">
+                        	<span class="timer_lbl">Remaining Time</span>
 	                            <div class="timer">
 	                                00:00
-	                            </div>
+                                </div>
+                                <span id="hour_group">
+                                    <span>Minutes &nbsp;&nbsp; : &nbsp;&nbsp;</span>
+                                    <span>Seconds</span>
+                                </span>                                
 
 	                            <span class="run_time_lbl">RUN TIME</span>
 	                            <div class="run_time">
@@ -88,6 +99,16 @@
                                 </button>
 		                    	<button class="btn uvc_btn_group stop">STOP</button>
 	                    	</div>
+                    	</td>
+                    </tr>
+
+                    <tr>
+                    	<td colspan="2">
+                    		<div style="display: inline-flex; padding-top: 20px;">
+                                <span>UVC Lamp lifespan remaining </span> &nbsp; &nbsp;
+                                    <p id="total_hours"> 9000 </p>
+                                <span> &nbsp;&nbsp; Hours </span>
+		                    </div>
                     	</td>
                     </tr>
                     
