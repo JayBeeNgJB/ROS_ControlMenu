@@ -12,6 +12,8 @@ function setup() {
 
     localStorage.setItem("REMAINING_SECONDS", 0);
     localStorage.setItem("CURRENT_SECONDS", 0);
+    localStorage.setItem("AUTO_START", 0);
+    localStorage.setItem("MANUAL_START", 0);
     auto_manual(1, 0);
 
     TOTAL = localStorage.getItem("total");
@@ -47,10 +49,18 @@ function powerOn() {
         console.log("AUTO MODE" +auto_mode);
         if (auto_mode == true) {
             console.log("Start auto");
+
+            //different auto and manual
+            localStorage.setItem("AUTO_START", 1);
+            localStorage.setItem("MANUAL_START", 0);
             startTimer($duration);
         } else {
             console.log("Why");
             startCount(0);
+
+            //different auto and manual
+            localStorage.setItem("AUTO_START", 0);
+            localStorage.setItem("MANUAL_START", 1);
         }        
 
         //disable power on
@@ -107,25 +117,41 @@ function powerOff() {
 
 function pause() {
     $(".pause_btn").on('click', function() {
-        $(".resume_btn").show();
-        $(this).hide();
 
-        PAUSE_TIMER = true;
+        if ((localStorage.getItem('AUTO_START') == 1 && localStorage.getItem('AUTO') == 1) || 
+            (localStorage.getItem('MANUAL_START') == 1 && localStorage.getItem('MANUAL') == 1)) {
+                console.log("Enterer");
+                $(".resume_btn").show();
+                $(this).hide();
+        
+                PAUSE_TIMER = true;
+        } else {
+            alert("Pause Mode is not correct");
+        }
+
+        
     });
 }
 
 function resume() {
     $(".resume_btn").on('click', function() {
-        if (localStorage.getItem("AUTO") == true) {
-            var remain_seconds = localStorage.getItem("REMAINING_SECONDS");
-            startTimer(remain_seconds); 
+        if ((localStorage.getItem('AUTO_START') == 1 && localStorage.getItem('AUTO') == 1) || 
+            (localStorage.getItem('MANUAL_START') == 1 && localStorage.getItem('MANUAL') == 1)) {
+                if (localStorage.getItem("AUTO") == true) {
+                    var remain_seconds = localStorage.getItem("REMAINING_SECONDS");
+                    startTimer(remain_seconds); 
+                } else {
+                    var current_seconds = localStorage.getItem("CURRENT_SECONDS");
+                    startCount(current_seconds);
+                }
+        
+                $(this).hide();
+                $(".pause_btn").show();  
         } else {
-            var current_seconds = localStorage.getItem("CURRENT_SECONDS");
-            startCount(current_seconds);
+            alert("RESUME Mode is not correct");
+            return;
         }
-
-        $(this).hide();
-        $(".pause_btn").show();  
+          
     });
 }
 
@@ -182,7 +208,6 @@ function startTimer(duration) {
         
 
         save_time(temp_total_seconds);
-        
         //pause action
         if (PAUSE_TIMER == true) {
             console.log("PAUSE");
