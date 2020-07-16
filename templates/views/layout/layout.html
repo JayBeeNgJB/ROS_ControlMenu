@@ -7,41 +7,38 @@
     <meta name="author" content="">
     <link rel="icon" href="/static/img/logo.ico">
 
-    <title>DX5 Dashboard</title>
+    <title>DX Disinfection Robot</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/pricing/">
-
+    <!-- Custom styles for this template -->
+    {% block css %}{% endblock %}
     <!-- Bootstrap core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <!-- <link href="/static/css/fontawesome-free-5.13.0-web/css/fontawesome.min.css" rel="stylesheet"> -->
     <link href="/static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    {% block css %}{% endblock %}
+    <link href="/static/css/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/index.css">
     
     <!-- library js -->
     <script src="/static/js/lib/jquery-3.5.1.min.js"></script>
-
-    <!-- Custom js  -->
-    <script src="/static/js/layout.js"></script>
 
     <!-- python api call -->
     <script type=text/javascript>
       $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
     </script>
-    {% block javascript %}{% endblock %}
 
-  </head>
+    <!-- Custom js  -->
+    {% block javascript %}{% endblock %}
+    <script src="/static/js/layout.js"></script>
+    <script src="/static/js/index.js"></script>
 
   <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-1 px-md-4 bg-white border-bottom shadow-sm">
       <h5 class="my-0 mr-md-auto font-weight-normal">
           <img src="/static/img/logo.png" class="logo"/>
       </h5>
-      <!-- <nav class="my-2 my-md-0 mr-md-3">
-        <a class="auto p-2 text-dark">Auto</a>
-        <a class="manual p-2 text-dark">Manual</a>
-      </nav> -->
+
     </div>
     <div class="container">
     <div class="menu">
