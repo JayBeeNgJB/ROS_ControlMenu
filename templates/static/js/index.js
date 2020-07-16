@@ -25,6 +25,7 @@ window.addEventListener('load', (e) => {
     powerOff();
     pause();
     resume();
+    current_page();
 
     $(".pause").css('pointer-events', 'none');
     $(".pause").css('color', '#7d7474');
@@ -349,6 +350,7 @@ function menu_switch() {
     });
 
     $(".auto").on('click', function() {
+        console.log("Clicking auto..");
         auto_manual(1, 0);
         auto_show();
     });

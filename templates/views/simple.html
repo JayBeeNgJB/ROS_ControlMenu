@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Datumstruct Robot Dashboard</title>
+
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="css//bootstrap.min.css">
+<link rel="stylesheet" href="css/fontawesome-free-5.13.0-web/css/all.css">
+<link rel="stylesheet" href="css/fontawesome-free-5.13.0-web/css/all.min.css">
+<link rel="stylesheet" href="css/simple.css">
+
+<script type="text/javascript" src="js/eventemitter2.js"></script>
+<script type="text/javascript" src="js/roslib.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+
+<script type="text/javascript" type="text/javascript">
+    // Connecting to ROS
+
+    var ros = new ROSLIB.Ros({
+     url : 'ws://192.168.200.145:9090'
+    });
+  
+    ros.on('connection', function() {
+        status();
+        console.log('Connected to websocket server.');
+    });
+   
+    ros.on('error', function(error) {
+        console.log('Error connecting to websocket server: ', error);
+    });
+    
+    ros.on('close', function() {
+        console.log('Connection to websocket server closed.');
+    });
+ 
+    // Publishing a Topic
+ 
+    var cmdVel = new ROSLIB.Topic({
+        ros : ros,
+        name : '/cmd_vel',
+        messageType : 'geometry_msgs/Twist'
+    });
+
+    var interval;
+    var LINEAR = 2;
+    var ANGULAR = 2;
+
+    $(document).ready(function() {
+        $(".btn_up").click(function () {
+            console.log("forward...")
+            clearInterval(interval);
+            interval = setInterval(UP, 1000);
+        });
+
+        $(".btn_down").click(function () {
+            console.log ("backing.....");
+            clearInterval(interval);
+            interval = setInterval(DOWN, 1000);
+        });
+
+        $(".btn_left").click(function () {
+            console.log ("Left.....");
+            clearInterval(interval);
+            interval = setInterval(LEFT, 1000);
+        });
+
+        $(".btn_right").click(function () {
+            console.log ("Right.....");
+            clearInterval(interval);
+            interval = setInterval(RIGHT, 1000);
+        });
+
+        $(".btn_stop").click(function () {
+            console.log ("STOP.....");
+            clearInterval(interval);
+            STOP();
+        });
+
+        //Linear speed and angular speed control
+        $(".btn_speed_up").click(function() {
+            LINEAR = LINEAR + 0.1;
+            console.log(LINEAR)
+        });
+
+        $(".btn_speed_down").click(function() {
+            if (LINEAR > 0.1) {
+                console.log("over 0");
+                LINEAR = LINEAR - 0.1;
+            }            
+            console.log(LINEAR);
+        });
+
+        $(".test").click(function() {
+            var clearRoute = new ROSLIB.Service({
+                ros : ros,
+                name : '/clear',
+                serviceType : 'std_srvs/Empty'
+            });
+
+            clearRoute.callService();
+        });
+
+        $(".subcribe").click(function() {
+            console.log("Subcribe");
+            var subcribe_cmd = new ROSLIB.Topic({
+                ros : ros,
+                name : '/rosapi/get_loggers',
+                messageType : 'turtlesim/Pose'
+            });
+
+        });
+
+    });
+
+    function UP() {
+      publishData(LINEAR , 0, 0, 0, 0, 0);  
+    }
+
+    function DOWN() {
+      publishData(0 - LINEAR, 0, 0, 0, 0, 0);  
+    }
+
+    function LEFT() {
+        publishData(0, 0, 0, 0, 0, ANGULAR);  
+    }
+
+    function RIGHT() {
+      publishData(0, 0, 0, 0, 0, 0 - ANGULAR); 
+    }
+
+    function STOP() {
+        publishData(0, 0, 0, 0, 0, 0);
+    }
+
+    function publishData(lx, ly, lz, ax, ay, az) {
+        var twist = new ROSLIB.Message({
+            linear : {
+                x : lx,
+                y : ly,
+                z : lz
+            },
+            angular : {
+                x : ax,
+                y : ay,
+                z : az
+            }
+        });
+
+        cmdVel.publish(twist);
+    }
+
+    function status() {
+        $("#robot_status").text("Connected");
+        $("#robot_status").css("color", "green");
+    }
+
+    function showSpeed(linear, angular) {
+        $("#linear_speed").text(linear);
+        $("#angular_speed").text(angular);
+    }
+
+ 
+    // Subscribing to a Topic
+    // ----------------------
+ 
+    // Calling a service
+    // -----------------
+
+</script>
+</head>
+
+ <body>
+     <div class="jumbrotron jumbotron-fluid">
+         <div class="header">
+            <div><img class="logo_img" src="img/logo.png" height="100px"/></div>            
+            <h3>Datumstruct Robot Dashboard</h3>
+         </div>
+         <div class="content">
+             <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Connection to Robot : <b id="robot_status">Not Connected</b></h5>
+                        <br/><br/><br/><br/>
+
+                        <table class="remote_control">
+                            <tr>
+                                <td></td>
+                                <td><button class="btn_up"><i class="fa fa-arrow-circle-up" style="font-size:24px;"></i></button></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><button class="btn_left"><i class="fa fa-undo" style="font-size:24px;"></i></button></td>
+                                <td><button class="btn_stop"><i class="fa fa-stop-circle" style="font-size:24px;"></i></button></td>
+                                <td><button class="btn_right"><i class="fas fa-redo" style="font-size:24px;"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button class="btn_down"><i class="fa fa-arrow-circle-down" style="font-size:24px;"></i></button></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <br/><br/><br/><br/>
+
+                        <h5>Speed Control</h5>
+                        <br/><br/>
+
+                        <table>
+                            <tr>
+                                <th></td>
+                                <th></td>
+                            </tr>
+                            <tr>
+                                <td><button class="btn_speed_up"><i class="fas fa-arrow-up" style="font-size:20px;"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><button class="btn_speed_down"><i class="fas fa-arrow-down" style="font-size:20px;"></td>
+                                <td></td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5>Mapping Show</h5>
+                        <button class="test">Test Service</button><br/><br/>
+                        <button class="subcribe">Subscribe</button>
+
+                    </div>
+                </div>
+            </div>
+                
+         </div>    
+     </div>  
+ </body>
+ </html>

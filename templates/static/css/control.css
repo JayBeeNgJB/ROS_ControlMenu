@@ -1,0 +1,91 @@
+.block{
+  /*border-style: groove;*/
+  border: 2px solid #9be8fc;
+  width: 100%;
+  display: inline-flex;
+ /* margin-bottom: 40px;*/
+}
+
+@media (min-width: 430px) and (max-width: 1024px){
+      .block {
+          /* padding: 12px; */
+      }
+  }
+
+.control_content {
+  margin-bottom: 7px; 
+  width: 100%;
+  font-size: 18px;
+  color: #9be8fc;
+}
+
+@media screen
+  and (max-device-width: 420px) {
+      .control_content {
+          margin-bottom: 20px;
+      }
+  }
+
+table {
+  width: 100%; 
+  height: 100%
+}
+
+td {
+  text-align: center;
+}
+
+
+
+#camera_live {
+  width : 100%;
+  height : 28%;
+}
+
+@media (max-width: 420px) {
+  #camera_live {
+      height: 31%;
+  }
+}
+
+@media (max-width: 380px) {
+  #camera_live {
+      height: 25%;
+  }
+}
+
+.camera_control {
+  padding-bottom: 15px;
+  padding-top: 10px;
+}
+
+@media (min-width: 430px) and (max-width: 800px){
+  .camera_control {
+      padding-top: 25px;
+  }
+}
+
+.camera_btn_group{
+  color: black;
+  background-color: #d4fcfe;
+  border-color: #d4fcfe;
+  width: 20%;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.camera_btn_group:active {
+  background-color: black;
+  font-size: 80%;
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .camera_btn_group {
+      width: 132px;
+  }
+}
+
+iframe{
+  padding: 6px;
+  border: unset;
+}

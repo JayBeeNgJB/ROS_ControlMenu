@@ -1,0 +1,82 @@
+{% extends 'views/layout/layout.html' %}
+
+{% block css %}
+  <link rel="stylesheet" href="/static/css/control.css">
+{% endblock %}
+
+{% block javascript %}
+  <script src="/static/js/common.js"></script>
+  <script>
+    PAGE_MODE = '{{ data.page }}';
+  </script>
+  
+  <script src="/static/js/control.js"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="block" style="border-bottom: unset;">
+      <div class="control_content">
+          <table>
+              <tr>
+                  <td>
+                    <table class="remote_control">
+                      <tr>
+                          <td></td>
+                          <td><button class="btn_up"><i class="fa fa-arrow-circle-up" style="font-size:50px;"></i></button></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td><button class="btn_left"><i class="fa fa-undo" style="font-size:50px;"></i></button></td>
+                          <td><button class="btn_stop"><i class="fa fa-stop-circle" style="font-size:50px;"></i></button></td>
+                          <td><button class="btn_right"><i class="fa fa-repeat" style="font-size:50px;"></i></button></td>
+                      </tr>
+                      <tr>
+                          <td></td>
+                          <td><button class="btn_down"><i class="fa fa-arrow-circle-down" style="font-size:50px;"></i></button></td>
+                          <td></td>
+                      </tr>
+                    </table>
+                  </td>
+                  
+                  <td class="emergency_area" style="width: 30%; padding-top: 15px; padding-bottom: 40px;">
+                    <span class="emergency_lbl">Emergency</span><br/><br/>
+                    <div>
+                      <img id="emergency" src="/static/img/emergency.png" width="50%" height="10%" style="border-radius: 50%;">
+                    </div>
+
+                  </td>
+
+                  <td class="dock_area" style="width: 30%; padding-top: 15px; padding-bottom: 40px;">
+                    <span class="dock_lbl">Dock</span><br/><br/>
+                    <div>
+                      <img id="emergency" src="/static/img/dock.png" width="50%" height="10%" style="border-radius: 50%;">
+                    </div>
+                  </td>
+              </tr>
+              
+          </table>
+      </div>
+  </div>
+
+  <div class="block">
+    <table>
+          <tr>
+              <td>
+                  <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
+                  <img id="camera_live" src="http://192.168.200.214/axis-cgi/mjpg/video.cgi?" />
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <div class="camera_control">  
+                      <button id="1" onclick="rotate(this.id)" class="btn camera_btn_group">Left</button>
+                      <button id="2" onclick="rotate(this.id)" class="btn camera_btn_group">Right</button>
+                      <button id="3" onclick="rotate(this.id)" class="btn camera_btn_group">&nbsp UP &nbsp</button>
+                      <button id="4" onclick="rotate(this.id)" class="btn camera_btn_group">DOWN</button>
+                  </div>
+              </td>
+          </tr>
+      </table>
+  </div>
+
+  {% endblock %}

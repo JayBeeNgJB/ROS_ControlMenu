@@ -18,10 +18,11 @@
 
     <!-- Custom styles for this template -->
     <link href="/static/css/cover.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/index.css">
     
     <!-- library js -->
     <script src="/static/js/lib/jquery-3.5.1.min.js"></script>
+    <script src="/static/js/lib/eventemitter2.js"></script>
+    <script src="/static/js/lib/roslib.min.js"></script>
 
     <!-- python api call -->
     <script type=text/javascript>
@@ -29,27 +30,31 @@
     </script>
 
     <!-- Custom js  -->
-    {% block javascript %}{% endblock %}
     <script src="/static/js/layout.js"></script>
-    <script src="/static/js/index.js"></script>
+    {% block javascript %}{% endblock %}
 
+  </head>
   <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-1 px-md-4 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">
-          <img src="/static/img/logo.png" class="logo"/>
-      </h5>
-
+    <div class="container" style="margin-bottom: unset;">
+      <div class="menu">
+        <div><img src="/static/img/logo.png" class="logo"/></div>
+        <div class="header-text">DX Disinfection Robot</div>
+      </div>
     </div>
-    <div class="container">
-    <div class="menu">
-      <div class="auto active" style="width: 50%;">AUTO</div>
-      <div class="manual" style="width: 50%;">MANUAL</div>
-    </div>
-  </div>
 
+    <div class="container" style="background-color: #393f4d">
+      <div class="menu" style="border-bottom: unset;">
+          <div class="auto menu-btn"  style="width: 50%;"><a href="{{ url_for('auto', par = 1)}}">AUTO</a></div>
+          <div class="manual menu-btn" style="width: 50%;"><a href="{{ url_for('auto', par = 2)}}">MANUAL</a></div>
+          <div class="control menu-btn" style="width: 50%;"><a href="{{ url_for('control')}}">CONTROL</a></div>
+      </div>
+    
     {% block content %}{% endblock %}
 
-    <div class="footer">
-      <span> Copyright © Datumstruct (S) </span>
     </div>
+    <div class="footer">
+      <span> Copyright @ Datumstruct Autonomous Robotic Technology</span>
+    </div>
+
   </body>
+</html>
