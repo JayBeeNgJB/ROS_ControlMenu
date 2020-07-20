@@ -35,7 +35,54 @@ td {
   text-align: center;
 }
 
+.emergency_alert {
+  display: none;
+  padding: 8px;
+  background-color: red;
+  text-align: center;
+  color: floralwhite;
+}
 
+#emergency_area  {
+  padding-bottom: 40px;
+}
+
+.emergency_stop {
+  width: 80%;
+  background-color: #e62c2c;
+  color: white;
+  font-weight: bold;
+}
+
+.emergency_stop:active {
+  background-color: black;
+  font-size: 80%;
+}
+
+@media (max-width: 760px) {
+  .emergency_stop {
+      width: 50%;
+      font-size: 10px;
+  }
+}
+
+.dock {
+  width: 80%;
+  background-color:#88761d;
+  color: wheat;
+  font-weight: bold;
+}
+
+.dock:active {
+  background-color: black;
+  font-size: 80%;
+}
+
+@media (max-width: 760px) {
+  .dock {
+      width: 50%;
+  }
+}
 
 #camera_live {
   width : 100%;
@@ -85,7 +132,35 @@ td {
   }
 }
 
-iframe{
-  padding: 6px;
-  border: unset;
+.status_zone {
+  padding-bottom: 15px;
+  padding-top: 10px;
+  font-size: 25px;
+}
+
+@media (max-width: 750px){
+  .status_zone {
+      padding-top: 25px;
+      font-size: 15px;
+  }
+}
+
+#connection_status {
+  color: #e62c2c;
+  background-color: aquamarine;
+  padding: 0px 5px;
+}
+
+#charging_status {
+  display: none;
+  color: #ad6028;
+  background-color: #49b4cc;
+  padding: 0px 5px;
+}
+
+#battery_status {
+  display: none;
+  color: #5ab523;
+  background-color: #1b4436;
+  padding: 0px 5px;
 }
